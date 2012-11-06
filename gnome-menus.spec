@@ -1,7 +1,7 @@
 Summary:	Implementation of the draft Desktop Menu Specification
 Name:		gnome-menus
 Version:	3.6.0
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.6/%{name}-%{version}.tar.xz
@@ -75,7 +75,8 @@ rm -rf $RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/xdg/menus
 
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/{ca@valencia,crh,dv,en@shaw,gn,ha,ig,io,kg,ps}
+# unsupported locale
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/{ca@valencia,crh,dv,en@shaw,gn,ha,ig,io,kg,ps,szl}
 rm -f $RPM_BUILD_ROOT%{py_sitedir}/GMenuSimpleEditor/*.py
 
 %find_lang %{name} --with-gnome --all-name
