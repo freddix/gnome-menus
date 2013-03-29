@@ -1,11 +1,11 @@
 Summary:	Implementation of the draft Desktop Menu Specification
 Name:		gnome-menus
-Version:	3.6.2
+Version:	3.8.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.6/%{name}-%{version}.tar.xz
-# Source0-md5:	c48775f704e7c542496d1fa1a84b2bfd
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.8/%{name}-%{version}.tar.xz
+# Source0-md5:	c1bf2752f3b8e2d0c1e519cc69441450
 Source1:	terminals.menu
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
@@ -25,15 +25,6 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 The package contains an implementation of the draft "Desktop Menu
 Specification" from freedesktop.org:
 http://www.freedesktop.org/Standards/menu-spec
-
-%package editor
-Summary:	Simple menu editor
-Group:		X11/Applications
-Requires:	python-pygobject3
-Requires:	xdg-menus
-
-%description editor
-Simple menu editor.
 
 %package libs
 Summary:	gnome-menu library
@@ -93,14 +84,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/desktop-directories/*
 %{_sysconfdir}/xdg/menus/*
 
-%files editor
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/gmenu-simple-editor
-%{_datadir}/%{name}
-%{_desktopdir}/gmenu-simple-editor.desktop
-%dir %{py_sitedir}/GMenuSimpleEditor
-%{py_sitedir}/GMenuSimpleEditor/*.py[co]
-
 %files libs
 %defattr(644,root,root,755)
 %attr(755,root,root) %ghost %{_libdir}/libgnome-menu-3.so.?
@@ -110,7 +93,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
 %{_pkgconfigdir}/*.pc
 %{_includedir}/gnome-menus-3.0
 %{_datadir}/gir-1.0/GMenu-3.0.gir
