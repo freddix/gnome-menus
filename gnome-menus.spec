@@ -1,18 +1,18 @@
 Summary:	Implementation of the draft Desktop Menu Specification
 Name:		gnome-menus
-Version:	3.8.0
+Version:	3.10.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.8/%{name}-%{version}.tar.xz
-# Source0-md5:	c1bf2752f3b8e2d0c1e519cc69441450
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.10/%{name}-%{version}.tar.xz
+# Source0-md5:	9cb5e89b8e870647e8115f0a72e37cd3
 Source1:	terminals.menu
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	glib-devel
-BuildRequires:	gobject-introspection-devel
+BuildRequires:	glib-devel >= 1:2.38.0
+BuildRequires:	gobject-introspection-devel >= 1.38.0
 BuildRequires:	intltool
 BuildRequires:	libtool
 BuildRequires:	pkg-config
