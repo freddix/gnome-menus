@@ -1,11 +1,11 @@
 Summary:	Implementation of the draft Desktop Menu Specification
 Name:		gnome-menus
-Version:	3.10.0
+Version:	3.10.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.10/%{name}-%{version}.tar.xz
-# Source0-md5:	9cb5e89b8e870647e8115f0a72e37cd3
+# Source0-md5:	6db025e79e2b69f39fc7aa0753f43081
 Source1:	terminals.menu
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
