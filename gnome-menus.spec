@@ -1,12 +1,11 @@
 Summary:	Implementation of the draft Desktop Menu Specification
 Name:		gnome-menus
 Version:	3.10.1
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.10/%{name}-%{version}.tar.xz
 # Source0-md5:	6db025e79e2b69f39fc7aa0753f43081
-Source1:	terminals.menu
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -17,7 +16,6 @@ BuildRequires:	intltool
 BuildRequires:	libtool
 BuildRequires:	pkg-config
 BuildRequires:	python-devel
-Obsoletes:	xdg-menus
 Provides:	xdg-menus
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -45,7 +43,7 @@ Headers for gnome-menus library.
 %setup -q
 
 # kill gnome common deps
-sed -i -e 's/GNOME_COMPILE_WARNINGS.*//g' configure.ac
+%{__sed} -i -e '/GNOME_COMPILE_WARNINGS.*/d' configure.ac
 
 %build
 %{__intltoolize}
@@ -64,11 +62,10 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/xdg/menus
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 
 # unsupported locale
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/{ca@valencia,crh,dv,en@shaw,gn,ha,ig,io,kg,ps,szl}
-rm -f $RPM_BUILD_ROOT%{py_sitedir}/GMenuSimpleEditor/*.py
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/{ca@valencia,crh,dv,en@shaw,gn,ha,ig,io,kg,ps,szl}
 
 %find_lang %{name} --with-gnome --all-name
 
@@ -82,7 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %{_datadir}/desktop-directories/*
-%{_sysconfdir}/xdg/menus/*
+%{_sysconfdir}/xdg/menus/gnome-applications.menu
 
 %files libs
 %defattr(644,root,root,755)
