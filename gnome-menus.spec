@@ -1,7 +1,7 @@
 Summary:	Implementation of the draft Desktop Menu Specification
 Name:		gnome-menus
 Version:	3.10.1
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.10/%{name}-%{version}.tar.xz
@@ -16,6 +16,7 @@ BuildRequires:	intltool
 BuildRequires:	libtool
 BuildRequires:	pkg-config
 BuildRequires:	python-devel
+Requires:	%{name}-libs = %{version}-%{release}
 Provides:	xdg-menus
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
